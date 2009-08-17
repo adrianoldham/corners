@@ -46,9 +46,7 @@ var Corners = Class.create({
                     element.insert(internalElement);
                     
                     // Only apply iePNGFix if it's available
-                    if (internalElement.iePNGFix) {
-                        internalElement.iePNGFix(this.options.iePNGFixBlankPixel);
-                    }
+                    internalElement.iePNGFix(this.options.iePNGFixBlankPixel);
                 }
             }.bind(this));
         }.bind(this));
