@@ -42,13 +42,13 @@ var Corners = Class.create({
                     internalElement = new Element("span", { "class": internalElementName });
                 }
 
-                if (internalElement != null) {
+                if (internalElement != null) {                    
+                    element.insert(internalElement);
+                    
                     // Only apply iePNGFix if it's available
                     if (internalElement.iePNGFix) {
                         internalElement.iePNGFix(this.options.iePNGFixBlankPixel);
                     }
-                    
-                    element.insert(internalElement);
                 }
             }.bind(this));
         }.bind(this));
