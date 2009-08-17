@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>index</title>
+    <script type="text/javascript" charset="utf-8" src="../lib/prototype.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../lib/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/corners.js"></script>
+
+    <style type="text/css" media="screen">
+        body {
+            margin: 0;
+        }
+        
+        .two-corners, .four-corners, .four-wrapper-corners {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            position: relative;
+            margin: 20px;
+            float: left;
+        }
+        
+        .left, .right {
+            top: 0;
+            position: absolute;
+            height: 200px;
+            background-color: #aaa;
+            width: 10px;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            right: 0;
+        }
+        
+        .topleft, .topright, .bottomleft, .bottomright {
+            width: 20px;
+            height: 20px;
+            background-color: #aaa;
+            position: absolute;
+        }
+        
+        .topleft {
+            left: 0;
+            top: 0;
+        }
+        
+        .topright {
+            right: 0;
+            top: 0;
+        }
+        
+        .bottomleft {
+            left: 0;
+            bottom: 0;
+        }
+        
+        .bottomright {
+            right: 0;
+            bottom: 0;
+        }
+        
+        .middle {
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="two-corners">
+        I have two corners
+    </div>
+    
+    <div class="four-corners">
+        I have four corners
+    </div>
+    
+    <div class="four-wrapper-corners">
+        I have a wrapper
+    </div>
+</body>
+
+<script type="text/javascript" charset="utf-8">
+    function runTest() {
+        new Corners(".two-corners", {
+            mode: Corners.Modes.TwoCorners
+        });
+        
+        new Corners(".four-corners", {
+            mode: Corners.Modes.FourCorners
+        });
+        
+        new Corners(".four-wrapper-corners", {
+            wrapperElementType: "div",
+            mode: Corners.Modes.FourCorners
+        });
+    }
+
+    Event.observe(window, "load", runTest);
+</script>
+
+</html>
