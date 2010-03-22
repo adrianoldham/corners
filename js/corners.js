@@ -1,8 +1,10 @@
 var Corners = Class.create({
     options: {
-        "mode": null,                     // Need to set to null cause modes are defined after Corners class is setup (default is Corners.Modes.TwoCorners)
-        "wrapperElementType": null,       // Leave null for no wrapper element
-        "iePNGFixBlankPixel": null        // Null, uses iePNGFix default of "/images/blank.gif"
+        mode: null,                     // Need to set to null cause modes are defined after Corners class is setup (default is Corners.Modes.TwoCorners)
+        wrapperElementType: null,       // Leave null for no wrapper element
+        iePNGFix: true,
+        iePNGFixBlankPixel: null,       // Null, uses iePNGFix default of "/images/blank.gif"
+        iePNGFixSizingMethod: null      // Null, uses iePNGFix default of "scaled"
     },
     
     initialize: function(selector, options) {        
@@ -45,8 +47,10 @@ var Corners = Class.create({
                 if (internalElement != null) {                    
                     element.insert(internalElement);
                     
-                    // Only apply iePNGFix if it's available
-                    internalElement.iePNGFix(this.options.iePNGFixBlankPixel);
+                    if (this.options.iePNGFix) {
+                        // Only apply iePNGFix if it's available
+                        internalElement.iePNGFix(this.options.iePNGFixBlankPixel,this.options.iePNGFixSizingMethod);
+                    }
                 }
             }.bind(this));
         }.bind(this));
